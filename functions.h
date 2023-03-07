@@ -1,0 +1,2 @@
+int dodajStudenta();
+void drukujListe();
