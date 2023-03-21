@@ -15,7 +15,13 @@ void ui(){
             dodajStudenta(tablicaStudentow, index);
             cout << "Dodano!" << endl;
             break;
-        case 2: break;
+        case 2: 
+            int i=0;
+            while(tabstudent[i]!=0){
+                cout << tabstudent[i] << endl;
+                i++;
+            }
+            break;
         default: break;
     }
 }
