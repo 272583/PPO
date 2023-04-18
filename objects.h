@@ -1,6 +1,4 @@
-#include <cstring>
-struct student{
-    int index;
-    string imie;
-    string nazwisko;
-}
+class osoby{};
+class osoba{};
+class student : osoba{};
+class pracownik : osoba{};

@@ -1,78 +1,80 @@
+#include <iostream>
 #include <string>
-using namespace std;
+#include <vector>
 
-class student{
+
+
+class osoba{
     private:
-        int index;
-        string Name;
-        string Surname;
-        string pesel;
+        std::string Name;
+        std::string Surname;
+        std::string Pesel;
     public:
-        string getName(){
+        osoba(std::string _Name, std::string _Surname, std::string _Pesel){
+            Name = _Name;
+            Surname = _Surname;
+            Pesel = _Pesel;
+        }
+        std::string getName(){
             return Name;
         }
-        void setName(string _Name){
+        void setName(std::string _Name){
             Name = _Name;
+        }
+
+        std::string getSurname(){
+            return Surname;
+        }
+        void setSurname(std::string _Surname){
+            Surname = _Surname;
+        }
+
+        void setPesel(std::string _pesel){
+            if(_pesel.length() == 11){
+                Pesel = _pesel;
+            }
+            else{
+                if(_pesel.length() > 11){
+                    std::cout << "Error: Pesel length exceeds 11 characters." << std::endl;
+                } else {
+                    std::cout << "Error: Pesel length is less than 11 characters." << std::endl;
+                }
+            }
+        }
+        virtual std::string getType() = 0;
+        virtual std::string getId() = 0;        
+};
+
+class student : public osoba{
+    private:
+        int index;
+    public:
+        student(int _index, std::string _Name, std::string _Surname, std::string _Pesel) : osoba(_Name, _Surname, _Pesel){
+            index = _index;
         }
 
         int getIndex(){
             return index;
         }
-        int setIndex(int _index){
+        void setIndex(int _index){
             index = _index;
-            return 0;
+        }
+};
+
+class pracownik : public osoba{
+    private:
+        int index;
+    public:
+        pracownik(int _index, std::string _Name, std::string _Surname, std::string _Pesel) : osoba(_Name, _Surname, _Pesel){
+            index = _index;
         }
 
-
-        string getSurname(){
-            return Surname;
+        int getIndex(){
+            return index;
         }
-        int setSurname( string _Surname){
-            Surname = _Surname;
-            return 0;
+        void setIndex(int _index){
+            index = _index;
         }
-
-        //gets the pesel from the class
-        string getPesel(){
-            return pesel;
-        }
-        /**
-          * This is a method that checks if the pesel is valid.
-          * If the pesel is valid it overwrites the current one in the class.
-          * @param _pesel
-          * @return 0 for valid, 1 for too short, 2 for too long
-        **/
-        int setPesel(string _pesel){
-            if(pesel.length() == 11){
-                pesel = _pesel;
-                return 0;
-            }
-            else{
-                if(pesel.length()>11){
-                    return 2;
-                }else{
-                    return 1
-                }
-            }
-        }
-
-        int getWiek()
-}
+};
 
 
-/*
-Class Students contains:
-- table of students (private)
-and methods:
-public:
-- getStudent(int i) - method for selecting a student  **listStudents will use this method**
-- addStudent - method for adding another student to the table(?)
-    error communications:
-     1 - referencing to an area out of bound
-     2 - 
-
-- getSumStudent - method for getting the number of all the students
-- Student(string pesel) - method for getting a student by their pesel
-- Student(int index) - method for getting a student by their index
-
-*/

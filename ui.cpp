@@ -1,27 +1,22 @@
 #include <iostream>
 #include "functions.h"
-using namespace std;
+#include "objects.h"
 
 void ui(){
-    cout << "Co chcesz zrobic?" << endl;
-    cout << "1. Dodaj studenta " << endl;
-    cout << "2. Wyswietl studentow" << endl;
+    std::cout << "Co chcesz zrobic?" << std::endl;
+    std::cout << "1. Dodaj studenta " << std::endl;
+    std::cout << "2. Wyswietl studentow" << std::endl;
     int wybor;
-    cin >> wybor;
+    std::cin >> wybor;
     switch(wybor){
         case 1: 
-            cout << "Podaj index: " << endl;
-            cin >> index;
-            dodajStudenta(tablicaStudentow, index);
-            cout << "Dodano!" << endl;
+            std::cout << "Podaj index: " << std::endl;
+            std::cout << "Dodano!" << std::endl;
             break;
         case 2: 
-            int i=0;
-            while(tabstudent[i]!=0){
-                cout << tabstudent[i] << endl;
-                i++;
-            }
+            
             break;
-        default: break;
+        default: 
+        break;
     }
 }

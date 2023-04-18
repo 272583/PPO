@@ -1,14 +1,20 @@
 #include <iostream>
+#include <vector>
 #include "ui.h"
-using namespace std;
+#include "objects.h"
 
-int index
-int tablicaStudentow[100];
+
+std::vector<osoba> Osoby;
 int main(){
-    for(int i=0; i<100; i++){
-        tablicaStudentow[i] = 0;
-    }
-
     ui();
     return 0;
 }
+
+
+        //gets the pesel from the class
+        /**
+          * This is a method that checks if the pesel is valid.
+          * If the pesel is valid it overwrites the current one in the class.
+          * @param _pesel
+          * @return 0 for valid, 1 for too short, 2 for too long
+        **/
