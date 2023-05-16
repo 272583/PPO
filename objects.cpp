@@ -3,6 +3,11 @@
 #include <vector>
 
 
+class interface {
+public:
+    virtual int getId() = 0;
+    virtual std::string getType() = 0;
+};
 
 class osoba{
     private:
@@ -40,12 +45,10 @@ class osoba{
                     std::cout << "Error: Pesel length is less than 11 characters." << std::endl;
                 }
             }
-        }
-        virtual std::string getType() = 0;
-        virtual std::string getId() = 0;        
+        }    
 };
 
-class student : public osoba{
+class student : public osoba, public interface{
     private:
         int index;
     public:
@@ -59,22 +62,30 @@ class student : public osoba{
         void setIndex(int _index){
             index = _index;
         }
+
+        std::string getType() override {
+        return "Student";
+    }
 };
 
-class pracownik : public osoba{
+class employee : public osoba, public interface{
     private:
-        int index;
+        int cnumber;
     public:
-        pracownik(int _index, std::string _Name, std::string _Surname, std::string _Pesel) : osoba(_Name, _Surname, _Pesel){
-            index = _index;
+        employee(int _cnumber, std::string _Name, std::string _Surname, std::string _Pesel) : osoba(_Name, _Surname, _Pesel){
+            cnumber = _cnumber;
         }
 
         int getIndex(){
-            return index;
+            return cnumber;
         }
-        void setIndex(int _index){
-            index = _index;
+        void setIndex(int _cnumber){
+            cnumber = _cnumber;
         }
+
+        std::string getType() override {
+        return "cnumber";
+    }
 };
 
 
