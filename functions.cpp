@@ -4,10 +4,16 @@
 #include "objects.h"
 
 
-int dodajStudenta(){
-//dodawanie studenta
+int addperson(std::vector<person*> *People, person* person){
+    *People.pushback(person);
 }
 
-std::string drukujListe(vector<osoba> _osoby){
-    std::cout << _osoby << std::endl;
+std::string printTypeList(std::vector<person*> People){
+    for (int i = 0; i < People.size(); i++) {
+        printPersonType(*People[i]);
+    }
+}
+
+void printPersonType(Identifiable *obj){
+     std::cout << obj->getType() << " ";
 }

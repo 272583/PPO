@@ -1,3 +1,4 @@
-int dodajStudenta();
-void drukujListe();
+int addPerson();
+void printTypeList();
+void printPersonType();
 

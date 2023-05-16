@@ -1,4 +1,4 @@
-class osoby{};
-class osoba{};
-class student : osoba{};
-class pracownik : osoba{};
+class Identifiable{};
+class person{};
+class student : person, Identifiable{};
+class employee : person, Identifiable{};

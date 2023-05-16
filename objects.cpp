@@ -2,20 +2,19 @@
 #include <string>
 #include <vector>
 
-
-class interface {
+class Identifiable {
 public:
     virtual int getId() = 0;
     virtual std::string getType() = 0;
 };
 
-class osoba{
+class person{
     private:
         std::string Name;
         std::string Surname;
         std::string Pesel;
     public:
-        osoba(std::string _Name, std::string _Surname, std::string _Pesel){
+        person(std::string _Name, std::string _Surname, std::string _Pesel){
             Name = _Name;
             Surname = _Surname;
             Pesel = _Pesel;
@@ -48,11 +47,11 @@ class osoba{
         }    
 };
 
-class student : public osoba, public interface{
+class student : public person, public Identifiable{
     private:
         int index;
     public:
-        student(int _index, std::string _Name, std::string _Surname, std::string _Pesel) : osoba(_Name, _Surname, _Pesel){
+        student(int _index, std::string _Name, std::string _Surname, std::string _Pesel) : person(_Name, _Surname, _Pesel){
             index = _index;
         }
 
@@ -63,16 +62,20 @@ class student : public osoba, public interface{
             index = _index;
         }
 
-        std::string getType() override {
+        std::string getType() {
         return "Student";
-    }
+        }
+
+        int getId() {
+            return index;
+        }
 };
 
-class employee : public osoba, public interface{
+class employee : public person, public Identifiable{
     private:
         int cnumber;
     public:
-        employee(int _cnumber, std::string _Name, std::string _Surname, std::string _Pesel) : osoba(_Name, _Surname, _Pesel){
+        employee(int _cnumber, std::string _Name, std::string _Surname, std::string _Pesel) : person(_Name, _Surname, _Pesel){
             cnumber = _cnumber;
         }
 
@@ -83,9 +86,13 @@ class employee : public osoba, public interface{
             cnumber = _cnumber;
         }
 
-        std::string getType() override {
-        return "cnumber";
-    }
+        std::string getType() {
+            return "Employee";
+        }
+
+        int getId() {
+            return cnumber;
+        }
 };
 
 

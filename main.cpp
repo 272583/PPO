@@ -3,18 +3,14 @@
 #include "ui.h"
 #include "objects.h"
 
+class lista{
+  std::vector<person*> People;
+  employee* p1 = new employee(1, "John", "Doe", "12345678901");
+  student* s1 = new student(100, "Jane", "Smith", "98765432109");
+};
 
-std::vector<osoba> Osoby;
 int main(){
     ui();
     return 0;
 }
 
-
-        //gets the pesel from the class
-        /**
-          * This is a method that checks if the pesel is valid.
-          * If the pesel is valid it overwrites the current one in the class.
-          * @param _pesel
-          * @return 0 for valid, 1 for too short, 2 for too long
-        **/

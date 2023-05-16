@@ -10,11 +10,14 @@ void ui(){
     std::cin >> wybor;
     switch(wybor){
         case 1: 
+            std::cout << "1. Dodaj pracownik" << std::endl;
+            std::cout << "2. Dodaj studenta" << std::endl;
             std::cout << "Podaj index: " << std::endl;
             std::cout << "Dodano!" << std::endl;
             break;
         case 2: 
-            
+
+            printTypeList();
             break;
         default: 
         break;
